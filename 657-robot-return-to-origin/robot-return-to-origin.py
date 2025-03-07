@@ -1,7 +1,6 @@
 class Solution(object):
     def judgeCircle(self, moves):
-        x=0
-        y=0
+        x,y=0,0
         for i in moves:
             if i == 'L':
                 x-=1
