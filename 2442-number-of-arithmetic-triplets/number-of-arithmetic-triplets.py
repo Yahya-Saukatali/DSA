@@ -1,10 +1,19 @@
-class Solution(object):
-    def arithmeticTriplets(self, nums, diff):
+class Solution:
+    def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
         count=0
         n=len(nums)
-        for i in range(n):
-            for j in range(i+1,n):
-                for k in range(j+1,n):
-                    if nums[j] - nums[i] == diff and nums[k] - nums[j] == diff:
-                        count+=1
+        for i in range(n-2):
+            l=i+1
+            r=n-1
+            while l < r:
+                if nums[l] - nums[i] == diff and nums[r] - nums[l] == diff:
+                    count+=1
+                    l+=1
+                    r-=1
+                elif nums[l]-nums[i] < diff:
+                    l+=1
+                else:
+                    r-=1
         return count
+
+        
